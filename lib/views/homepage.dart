@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import '../cards/category_card.dart';
-import '../helper/data.dart';
-import '../helper/news.dart';
-import '../helper/widgets.dart';
+import '../components/category_card.dart';
+import '../components/data.dart';
+import '../components/news.dart';
+import '../components/widgets.dart';
 import '../models/article.dart';
-import '../models/categorie_model.dart';
+import '../models/category_model.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -67,7 +67,6 @@ class _HomePageState extends State<HomePage> {
             : SingleChildScrollView(
                 child: Column(
                   children: <Widget>[
-                    /// Categories
                     const SizedBox(
                       height: 10,
                     ),
@@ -75,32 +74,32 @@ class _HomePageState extends State<HomePage> {
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       height: 70,
                       child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: categories.length,
-                          itemBuilder: (context, index) {
-                            return CategoryCard(
-                              imageAssetUrl: categories[index].imageAssetUrl,
-                              categoryName: categories[index].categoryName,
-                            );
-                          }),
+                        scrollDirection: Axis.horizontal,
+                        itemCount: categories.length,
+                        itemBuilder: (context, index) {
+                          return CategoryCard(
+                            imageAssetUrl: categories[index].imageAssetUrl,
+                            categoryName: categories[index].categoryName,
+                          );
+                        },
+                      ),
                     ),
-
-                    /// News Article
                     Container(
                       margin: const EdgeInsets.only(top: 16),
                       child: ListView.builder(
-                          itemCount: newslist.length,
-                          shrinkWrap: true,
-                          physics: const ClampingScrollPhysics(),
-                          itemBuilder: (context, index) {
-                            return NewsTile(
-                              imgUrl: newslist[index].urlToImage ?? "",
-                              title: newslist[index].title ?? "",
-                              desc: newslist[index].description ?? "",
-                              content: newslist[index].content ?? "",
-                              posturl: newslist[index].articleUrl ?? "",
-                            );
-                          }),
+                        itemCount: newslist.length,
+                        shrinkWrap: true,
+                        physics: const ClampingScrollPhysics(),
+                        itemBuilder: (context, index) {
+                          return NewsTile(
+                            imgUrl: newslist[index].urlToImage ?? "",
+                            title: newslist[index].title ?? "",
+                            desc: newslist[index].description ?? "",
+                            content: newslist[index].content ?? "",
+                            posturl: newslist[index].articleUrl ?? "",
+                          );
+                        },
+                      ),
                     ),
                   ],
                 ),

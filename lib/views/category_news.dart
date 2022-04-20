@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_daily_news/helper/news_category.dart';
+import 'package:flutter_daily_news/components/news_category.dart';
 import 'package:flutter_daily_news/models/article.dart';
 
-import '../helper/widgets.dart';
+import '../components/widgets.dart';
 
 class CategoryNews extends StatefulWidget {
   final String newsCategory;
